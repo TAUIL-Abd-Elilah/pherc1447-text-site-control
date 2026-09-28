@@ -1,0 +1,89 @@
+{
+ "point_zyx": [
+  12557,
+  2742,
+  4144
+ ],
+ "box_zyx0": [
+  12100,
+  2510,
+  2400
+ ],
+ "sheet_y_at_point": 2741.85,
+ "sheet_minus_announced_y_vox": -0.15,
+ "deeper_sheet_separation_vox": {
+  "min": 17.3,
+  "median": 104.6,
+  "max": 296.7,
+  "at_point": 95.4
+ },
+ "scroll_centroid_yx_at_z": [
+  3457,
+  3915
+ ],
+ "forward_face_points_to_centre": true,
+ "strokes": [
+  {
+   "centre_zyx": [
+    12815,
+    2856.7,
+    4628
+   ],
+   "extent_mm_z_x": [
+    1.37,
+    3.08
+   ],
+   "area_px": 20369,
+   "half_width_um": 276,
+   "elongation": 20.0,
+   "s43_mean": 0.86,
+   "reverse_face_s42_mean": 0.13,
+   "distance_to_point_mm": 4.84,
+   "contrast": {
+    "s42_forward_shift-8": 0.041,
+    "s42_reverse_shift-8": -0.027,
+    "s43_forward_shift-8": 0.015,
+    "s43_reverse_shift-8": -0.029,
+    "ftb_forward_shift-8": 0.039,
+    "ftb_reverse_shift-8": 0.011,
+    "sch_forward_shift-8": 0.115,
+    "sch_reverse_shift-8": -0.027,
+    "s42_forward_shift-4": 0.525,
+    "s42_reverse_shift-4": -0.014,
+    "s43_forward_shift-4": 0.6,
+    "s43_reverse_shift-4": 0.062,
+    "ftb_forward_shift-4": 0.319,
+    "ftb_reverse_shift-4": 0.023,
+    "sch_forward_shift-4": 0.439,
+    "sch_reverse_shift-4": 0.026,
+    "s42_forward_shift+0": 0.813,
+    "s42_reverse_shift+0": 0.02,
+    "s43_forward_shift+0": 0.803,
+    "s43_reverse_shift+0": 0.019,
+    "ftb_forward_shift+0": 0.468,
+    "ftb_reverse_shift+0": -0.001,
+    "sch_forward_shift+0": 0.536,
+    "sch_reverse_shift+0": 0.038,
+    "s42_forward_shift+4": 0.784,
+    "s42_reverse_shift+4": 0.048,
+    "s43_forward_shift+4": 0.812,
+    "s43_reverse_shift+4": -0.057,
+    "ftb_forward_shift+4": 0.459,
+    "ftb_reverse_shift+4": -0.03,
+    "sch_forward_shift+4": 0.535,
+    "sch_reverse_shift+4": -0.024,
+    "s42_forward_shift+8": 0.628,
+    "s42_reverse_shift+8": 0.056,
+    "s43_forward_shift+8": 0.585,
+    "s43_reverse_shift+8": -0.009,
+    "ftb_forward_shift+8": 0.366,
+    "ftb_reverse_shift+8": -0.012,
+    "sch_forward_shift+8": 0.472,
+    "sch_reverse_shift+8": 0.011
+   },
+   "path_max_step_vox": 0.98,
+   "path_sample_spacing_vox": 1.37
+  }
+ ],
+ "sheet_area_cm2_rim_excluded": 1.9
+}

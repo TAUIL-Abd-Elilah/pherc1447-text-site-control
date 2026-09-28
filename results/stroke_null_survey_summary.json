@@ -1,0 +1,14 @@
+{
+ "blocks": 66,
+ "scrolls": 22,
+ "area_cm2_per_face_rim_excluded": 119.7,
+ "rule": "s42 forward or reverse > 0.6; area >= 5000 px; elongation area/r^2 >= 15; not touching the rim; s43 mean > 0.5; other-face s42 mean < 0.2",
+ "components_area_elong15": 19,
+ "elong20": 3,
+ "plus_s43_and_not_rim": 0,
+ "passing_rule": 0,
+ "blocks_by_voxel": {
+  "8.640um": 33,
+  "9.362um": 33
+ }
+}

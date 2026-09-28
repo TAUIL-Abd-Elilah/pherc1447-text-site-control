@@ -1,0 +1,17 @@
+{
+ "cm2": 3.24066604032,
+ "components": [
+  {
+   "block": "announced",
+   "sheet": "sheet_00.zarr",
+   "face": "fwd",
+   "area_px": 20369,
+   "elong": 20.0,
+   "z": 616,
+   "x": 2046,
+   "s43_mean": 0.86,
+   "touches_edge": false,
+   "other_face_mean": 0.13
+  }
+ ]
+}
