@@ -5,31 +5,55 @@ Does the released `ink_9um` draw strokes on the eligible 1.2 m scan type? PHerc1
 found text in it with a new recipe; their 24 Sep announcement places it at x 4144, y 2742, z 12557. This
 repository tracks the papyrus sheet that passes through that point and runs five public 9 µm readers on it.
 
-**Result.** On that sheet, the released `ink_9um` (both seeds) draws **one stroke-shaped mark, 4.8 mm from the
-announced point**: a U-shaped stroke 3.1 x 1.4 mm with a dot beside it (figures 1, 2).
-- **Inward face only.** It is there on the face towards the scroll centre, where papyrus is written, and not on the other face.
-- **Depth-localised.** It is present with the render moved anywhere from 35 µm outward to 69 µm inward, and gone at 69 µm outward.
-- **Seen by all five readers.** Both released seeds, our native-9 µm fine-tune, Chris Scheirer's fine-tune and KLAVIS's Reader v2 draw it, each only on the inward face. Reader v2, the strongest public reader on this 116 keV scan type, draws it most strongly (contrast +0.85).
-- **Not an echo of a neighbouring turn.** The neighbouring sheets are about 14 voxels (120 µm) away on either side. An echo of their writing would grow toward them (Dreamskid's test on PHerc Paris 4). This mark fades toward both instead, to about 0 at ±16 voxels in every reader.
-- **Rare elsewhere.** By one fixed rule (below) it is the only such mark in the 1.9 cm² of the sheet. The same rule finds **none in 119.7 cm²** of sheet-following renders of all 22 First Letters scrolls.
+> **Correction, 29 Sep 2026.** The "U-shaped stroke" below is the lower arc of an **isolated ring about 3.4 mm
+> across**. Bullo27 reported this ring first, on the team's segment `20250702235910`, as "One mark we could not
+> explain": centre x 4656, y 2884, z 12652, drawn by all 14 released checkpoints on the forward face
+> ([first-letters-survey](https://github.com/Bullo27/first-letters-survey), `analysis/pherc1447_ring/`). They read
+> it as more likely structure than ink, mainly because it stands alone. Our 0.6 threshold split the ring into its
+> lower and upper arcs, and the numbers below describe the lower arc (figure 4 shows the whole ring).
+> kadenpool pointed this out in [issue #1](https://github.com/TAUIL-Abd-Elilah/pherc1447-text-site-control/issues/1).
+> Whether the ring is ink or structure is open, so this is **not** the positive control
+> [villa#1907](https://github.com/ScrollPrize/villa/issues/1907) asked for.
 
-**What it is not.** The rest of the sheet reads as blobs. There is no legible text, and we have not matched
-the mark to the organisers' reading. The rule was written after seeing this mark, so the comparison is
-exploratory.
+**Result.** On the sheet through the announced point, the one strong mark the readers draw is that ring, 4.7 mm
+from the point (figures 1, 2, 4). We add these measurements of it:
+- **Inward face only.** It is there on the face towards the scroll centre and not on the other face (as Bullo27
+  found for the released checkpoints).
+- **Depth-localised.** It is present with the render moved anywhere from 35 µm outward to 69 µm inward, and gone
+  at 69 µm outward.
+- **Seen by all five readers.** Both released seeds, our native-9 µm fine-tune, Chris Scheirer's fine-tune and
+  KLAVIS's Reader v2 draw it, each only on the inward face. Reader v2 draws it most strongly (contrast +0.85).
+- **Not an echo of a neighbouring turn.** The neighbouring sheets are about 14 voxels (120 µm) away on either side.
+  An echo of their writing would grow toward them (Dreamskid's test on PHerc Paris 4). This mark fades toward both
+  instead, to about 0 at ±16 voxels in every reader.
+- **Rare elsewhere.** By one fixed rule (below) its lower arc is the only such mark in the 1.9 cm² of the sheet.
+  The same rule finds **none in 119.7 cm²** of sheet-following renders of all 22 First Letters scrolls.
 
-**Why it may be useful.** [villa#1907](https://github.com/ScrollPrize/villa/issues/1907) asks for a positive
-control on the eligible 1.2 m scan type, and notes that nobody has a measured reason to trust what `ink_9um`
-shows there. This is a partial one: at a place where text is known, on a sheet-following surface, the
-public reader draws a stroke-shaped, one-sided, depth-localised mark of a kind that the rule below finds nowhere
-in 120 cm² of the eligible scrolls. It shows detection of a stroke, not readability. `src/bigsheet.py` tracks and renders
-any sheet from a seed point, so anyone can repeat this at another point in about 15 minutes of GPU time.
+None of these tells ink from structure. A mark that is one-sided, thin in depth and isolated could be either a round
+letter or an edge in the papyrus. We see no round void in the CT layers of figure 4, but at 8.64 µm that does not
+rule structure out.
+
+**What it is not.** The rest of the sheet reads as blobs. There is no legible text, and the mark has not been
+matched to the organisers' reading. The rule was written after seeing the mark, so the comparison is exploratory.
+
+**What is still useful here.**
+- A tool: `src/bigsheet.py` tracks the sheet through any seed point from the public m7 prediction. It runs five
+  readers on both faces and at depths out to the neighbouring sheets, in about 15 minutes of GPU time.
+- The site checks and the stroke rule, with a 120 cm² comparison set from the eligible scrolls.
+- A characterisation of the one strong mark at the announced site, for whoever settles what it is.
 
 ![announced sheet](figures/01_announced_sheet.png)
 *Figure 1. The sheet through the announced point (red circle), 10.4 x 24.2 mm. Top: CT; bottom: released
-ink_9um seed 42, inward face. Blue box: the stroke.*
+ink_9um seed 42, inward face. Blue box: the lower arc of the ring (the "U").*
+
+![the whole ring](figures/04_ring.png)
+*Figure 4. 7.3 x 7.3 mm around the ring's centre (x 4656, z 12652) on our sheet. Top: CT at four depths (layer 13-14
+is the surface; higher layers are inward). Bottom: seed 42 and Reader v2 on the inward face, seed 42 on the other
+face, and Reader v2 with the render moved 8 voxels inward. Blue circle: Bullo27's ring (radius 1.7 mm). Red: the
+centre of the "U" measured below.*
 
 ![stroke across depth and faces](figures/02_stroke_depth_and_face.png)
-*Figure 2. The stroke, for each of the five readers (rows), with the render moved along depth from -12 to +12
+*Figure 2. The lower arc of the ring, for each of the five readers (rows), with the render moved along depth from -12 to +12
 voxels (columns; 1 voxel = 8.64 µm; + = towards the scroll centre; the neighbouring sheets are ~14 voxels away)
 and on the other face (last column). The number in each panel is the contrast:
 mean prediction on the stroke minus a ring 10-40 px around it.*
