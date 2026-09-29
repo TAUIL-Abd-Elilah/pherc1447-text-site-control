@@ -27,7 +27,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import zfetch as zf  # noqa: E402
 
 VOX_MM = 8.64e-3
-READERS = ('s42', 's43', 'ftb', 'sch')
+READERS = ('s42', 's43', 'ftb', 'sch', 'rv2')
 
 
 def ink(d, n, rev=False, shape=None):

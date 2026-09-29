@@ -4,7 +4,7 @@ Region: z [z0, z1), depth axis y [y0, y1), x [x0, x1) (L0). The m7 mask and CT a
 when already downloaded), the sheet is grown by sheet_grow.grow() from the seed column (zs, xs) at the run
 centre nearest to depth ds, then snapped to the full-resolution run centres and rendered as a 28-layer stack along the depth axis (as
 blockscan.py does). Writes <out>/sheet_00.zarr, sheet_00_h.npy, sheet_valid.npy and runs infer_sheets.py on it
-with the readers in $READERS (default: s42 s43 ftb sch).
+with the readers in $READERS (default: s42 s43 ftb sch rv2).
 """
 import argparse
 import os
@@ -85,7 +85,7 @@ def main():
     np.save(os.path.join(a.out, 'sheet_valid.npy'), inside)
     print('rendered', stack.shape, 'valid', round(float(inside.mean()), 3), flush=True)
     subprocess.call([sys.executable, os.path.join(os.path.dirname(os.path.abspath(__file__)), 'infer_sheets.py'),
-                     a.out, *os.environ.get('READERS', 's42 s43 ftb sch').split()])
+                     a.out, *os.environ.get('READERS', 's42 s43 ftb sch rv2').split()])
 
 
 if __name__ == '__main__':

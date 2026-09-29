@@ -3,7 +3,7 @@ sheet from bigsheet.py). All sheets are tiled into one mosaic zarr so each reade
 inference CLI runs both depth directions (forward = +depth axis, reverse); outputs are rescaled with
 (p - 0.25) / 0.5 (ink_9um's label smoothing puts "no ink" at 0.25). Writes <dir>/ink_scores.json (per sheet and
 reader: fraction > 0.5 and best 2 mm window, 48 px rim excluded), mosaic_<reader>[_reverse].tif, ink_sheet.png.
-usage: infer_sheets.py <dir> [s42 s43 ftb sch]"""
+usage: infer_sheets.py <dir> [s42 s43 ftb sch rv2]"""
 import glob
 import json
 import os
@@ -23,7 +23,8 @@ C = os.environ.get('INK9UM_CKPTS', 'models/ink_9um')
 MODELS = {'s42': f'{C}/hybrid_3d2d-seed42/step-075000.pth',          # huggingface.co/scrollprize/ink_9um
           's43': f'{C}/hybrid_3d2d-seed43/step-075000.pth',
           'ftb': os.environ.get('FTB_CKPT', 'models/ink9um_native0139_ft6k.pth'),       # our native-9 um fine-tune
-          'sch': os.environ.get('SCH_CKPT', 'models/ink9um_ft_s42_step12000.pth')}      # Chris Scheirer's fine-tune
+          'sch': os.environ.get('SCH_CKPT', 'models/ink9um_ft_s42_step12000.pth'),      # Chris Scheirer's fine-tune
+          'rv2': os.environ.get('RV2_CKPT', 'models/reader-v2-step040000.pth')}         # KLAVIS Reader v2
 
 
 def run(zp, name, ck):

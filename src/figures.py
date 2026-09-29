@@ -74,16 +74,17 @@ def main():
     c, v = ct(sheet)
     Hs, Ws = c.shape
     win = (slice(max(0, cz - hz), cz + hz), slice(max(0, cx - hx), cx + hx))
-    shifts = [-8, -4, 0, 4, 8]
+    shifts = [-12, -8, -4, 0, 4, 8, 12]
     cols = [(k, False) for k in shifts] + [(0, True)]
     ds = 2
     th, tw = (win[0].stop - win[0].start) // ds, (win[1].stop - win[1].start) // ds
-    readers = [('s42', 'ink_9um s42'), ('s43', 'ink_9um s43'), ('ftb', 'ft_b (ours)'), ('sch', 'Scheirer ft_s42')]
+    readers = [('s42', 'ink_9um s42'), ('s43', 'ink_9um s43'), ('ftb', 'ft_b (ours)'), ('sch', 'Scheirer ft_s42'),
+               ('rv2', 'Reader v2 (KLAVIS)')]
     cv = Image.new('RGB', ((len(cols) + 1) * (tw + 6), (len(readers)) * (th + 18) + 34), (255, 255, 255))
     dr = ImageDraw.Draw(cv)
     dr.text((4, 2), f"Stroke at z {st['centre_zyx'][0]}, y {st['centre_zyx'][1]:.0f}, x {st['centre_zyx'][2]}: "
                     f"{st['extent_mm_z_x'][1]} x {st['extent_mm_z_x'][0]} mm, {st['distance_to_point_mm']} mm from the "
-                    f"announced point. Columns: render shifted along depth (1 voxel = 8.64 um), forward = inward face.",
+                    f"announced point. Columns: render shifted along depth (1 voxel = 8.64 um; neighbouring sheets ~14 voxels away), forward = inward face.",
             fill=(0, 0, 0))
     for j, (k, rev) in enumerate(cols):
         dr.text(((j + 1) * (tw + 6) + 4, 18), f'{"reverse" if rev else "forward"} {k:+d} vox', fill=(0, 0, 0))
